@@ -11,16 +11,21 @@ export class App extends Component {
 
         this.nodesContainer = this.shadowRoot.querySelector("nodes-container");
 
-        this.addEvents();
+        this.searchComponent.addEventListener("refresh", (e) => {
+            this.nodesContainer.refresh(e.detail);
+        });
+
+        this.searchComponent.addEventListener("mode", (e) => {
+            this.renderType(e.detail.mode);
+            this.searchComponent.inputComponent.setQueryString(e.detail.queryString);
+            this.searchComponent.selectComponent.setAttr(e.detail.attribute);
+            this.searchComponent.filter();
+        });
     }
 
-    async renderType(mode) {
+    renderType(mode) {
         this.searchComponent.remove();
-        this.searchComponent = document.createElement("type-of-search");
-        
-        this.append(this.searchComponent);
-        console.log('1');
-        
+        this.searchComponent.render("TypeOfSearch");
         
         switch(mode) {
             case 'immediate':
@@ -62,21 +67,6 @@ export class App extends Component {
             break;
         }
 
-        
-        this.addEvents();
-        // this.searchComponent.init();
-    }
-
-    addEvents() {
-        this.searchComponent.addEventListener("refresh", (e) => {
-            this.nodesContainer.refresh(e.detail);
-        });
-
-        this.searchComponent.addEventListener("mode", (e) => {
-            this.renderType(e.detail.mode);
-            this.searchComponent.inputComponent.setQueryString(e.detail.queryString);
-            this.searchComponent.selectComponent.setAttr(e.detail.attribute);
-            this.searchComponent.filter();
-        });
+        this.searchComponent.init();
     }
 }

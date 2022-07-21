@@ -1,4 +1,4 @@
-import { Component } from '../base/Component.js';
+import { Component } from '../Base/Component.js';
 
 export class SearchNode extends Component {
     constructor() {
@@ -12,7 +12,7 @@ export class SearchNode extends Component {
     insertImage() {
         let img = this.shadowRoot.querySelector('.Card__img');
         let link = this.getAttribute('img');
-        img.src = `./src/assets/${link}`;
+        img.src = require(`./../../assets/${link}`);
     }
 
 }
