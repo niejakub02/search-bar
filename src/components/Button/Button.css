@@ -1,0 +1,18 @@
+.Button {
+    background-color: #252422;
+    padding: .5rem 1rem;
+    border-radius: 0.5rem;
+    border: 0;
+    cursor: pointer;
+    color: #FFFCF2;
+    transition: background-color .25s;
+    box-shadow: 2px 2px 32px 2px #252422;
+}
+
+.Button:hover {
+    background-color: #EB5E28;
+}
+
+.Button--active {
+    background-color: #EB5E28;
+}
