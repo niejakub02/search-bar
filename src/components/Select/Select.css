@@ -1,0 +1,17 @@
+.Select {
+    background-color: #252422;
+    padding: .5rem 1rem;
+    border-radius: 0.5rem;
+    color: #FFFCF2;
+    border: 0;
+    box-shadow: 2px 2px 32px 2px #252422;
+}
+
+.Select:focus {
+    outline: 0;
+}
+
+.Select__option {
+    background-color: #252422;
+    color: #FFFCF2;
+}
