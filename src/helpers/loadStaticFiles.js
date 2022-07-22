@@ -1,18 +1,16 @@
 const components = ['App', 'Button', 'Input', 'NodesContainer', 'SearchNode', 'Select', 'TypeOfSearch'];
 
-import { data } from './loadData.js';
-
 export const templates = {};
 export const styles = {};
 
-export const loadTemplates = async () => {
+export const loadTemplates = () => {
     for (let component of components) {
-        templates[component] = await require(`./../components/${component}/${component}.html`).default;
+        templates[component] = require(`./../components/${component}/${component}.html`).default;
     }
 }
 
-export const loadStyles = async () => {
+export const loadStyles = () => {
     for (let component of components) {
-        styles[component] = await require(`./../components/${component}/${component}.css`).default;
+        styles[component] = require(`./../components/${component}/${component}.css`).default;
     }
 }

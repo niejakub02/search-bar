@@ -9,9 +9,9 @@ import { TypeOfSearch } from './components/TypeOfSearch/TypeOfSearch.js'
 import { Button } from './components/Button/Button.js';
 
 
-(async () => {
-    await loadTemplates();
-    await loadStyles();
+(() => {
+    loadTemplates();
+    loadStyles();
 
     customElements.define('app-root', App);
     customElements.define('search-node', SearchNode);
