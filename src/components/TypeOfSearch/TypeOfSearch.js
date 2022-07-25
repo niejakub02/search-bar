@@ -42,8 +42,7 @@ export class TypeOfSearch extends Component {
     }
 
     init() {
-        return new Promise((resolve, reject) => {
-            this.selectComponent = this.shadowRoot.querySelector('select-input');
+        this.selectComponent = this.shadowRoot.querySelector('select-input');
 
         this.selectComponent.addEventListener("change", (e) => {
             this.attribute = e.detail;
@@ -65,7 +64,7 @@ export class TypeOfSearch extends Component {
         });
 
         let buttons = this.shadowRoot.querySelectorAll('mode-button');
-
+        
         buttons.forEach(btn => {
             (btn.attributes[0].value == this.mode) ? btn.setAttribute('active', '') : btn.removeAttribute('active');
         })
@@ -84,13 +83,5 @@ export class TypeOfSearch extends Component {
                 this.filter();
             }); 
         }
-
-        resolve();
-        });
-    }
-
-    async connectedCallback() {
-        await this.init();
-        console.log('2');
     }
 }

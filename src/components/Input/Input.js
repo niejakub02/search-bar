@@ -1,4 +1,4 @@
-import { Component } from '../base/Component.js';
+import { Component } from '../Base/Component.js';
 
 export class Input extends Component {
     constructor() {

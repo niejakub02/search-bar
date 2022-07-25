@@ -1,4 +1,4 @@
-import { Component } from '../base/Component.js';
+import { Component } from '../Base/Component.js';
 
 export class Button extends Component {
     static get observedAttributes() { return ['active']; }

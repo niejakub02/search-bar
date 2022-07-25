@@ -4,7 +4,6 @@ export class Component extends HTMLElement {
     constructor() {
         super();
 
-        //console.log(this.constructor.name);
         this.render(this.constructor.name);
     }
 
@@ -13,19 +12,15 @@ export class Component extends HTMLElement {
         let style = this.createStyle(name);
         this.container.appendChild(style);
         if (!this.shadowRoot) this.attachShadow({ mode: 'open' });
-        // jesli zrobie zeby usuwalo caly komponent to ten if jest zbedny
         this.shadowRoot.appendChild(this.container);
-        //this.shadowRoot.appendChild(style);
     }
 
     append(element) {
-        this.container.insertBefore(element, this.container.firstChild);
-        // this.container.appendChild(element);
+        this.container.appendChild(element);
     }
 
     remove() {
-        this.parentNode.removeChild(this);
-        //this.container.remove();
+        this.container.remove();
     }
 
     createContainer(name) {
